@@ -22,11 +22,27 @@
       <div class="card-header">
         <h2>Generate a Password</h2>
       </div>
+
       <div class="card-body">
         <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
       </div>
+
       <div class="card-footer">
         <button id="generate" class="btn">Generate Password</button>
+      </div>
+
+      <div>
+        <button onclick="lengthPrompt()">Set your Length</button>
+        <p id="demo"></p>
+      </div>
+
+      <div>
+        <button onclick="characterPrompt()">Set Characters</button>
+        lowercase: <input type="checkbox" id="lowerRadio">
+        uppercase: <input type="checkbox" id="upperRadio">
+        numeric: <input type="checkbox" id="numericRadio">
+        special: <input type="checkbox" id="specialRadio">
+
       </div>
     </div>
 
