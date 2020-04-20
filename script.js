@@ -23,9 +23,9 @@ function generatePassword() {
 }
 
 // function for setting original user criteria
-function userCriteria(lengthInput) {
+function userCriteria() {
   var criteriaObject = {
-    length: 0,
+    lengthOriginal: 0,
     character: {
       lowercase: false,
       uppercase: false,
@@ -33,31 +33,22 @@ function userCriteria(lengthInput) {
       special: false
     }
   }
-
-  // setLength: function(lengthInput) {
-  //   this.length = lengthInput;
-  // }
-  return criteriaObject
 }
 
-//Prompt to get length
+//Prompt to get length answer from html
 function lengthPrompt() {
-  var minLengthAnswer = prompt("Please enter your minimum length");
-  var maxLengthAnswer = prompt("Please enter your maximum length");
-  var finalLengthForSure = 0;
-  if (minLengthAnswer != null) {
-    document.getElementById("demo").innerHTML =
-      " min LENGTH IS " + minLengthAnswer +
-      " max LENGTH IS " + maxLengthAnswer;
-
-    //setLength(lengthAnswer);
-  }
+  var lengthAnswer = prompt("Please enter a number that is between 8 and 128");
+  if (lengthAnswer != null) {
+    document.getElementById("danswer").innerHTML =
+      " Length is " + lengthAnswer;
+  } 
+  console.log(lengthAnswer)
 }
 
-//function to get the min and max length in one
-function lengthRange(max, min) {
-  var finalLength = Math.floor(Math.random() * max) + min;
-  return finalLength;
+function lengthCriteria() {
+  var length() {
+    if ()
+  } 
 }
 
 //Prompt to get characters
