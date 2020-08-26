@@ -1,65 +1,72 @@
-// Variable for the button linked to html
-var generateBtn = document.querySelector("#generate");
+// letiable for the button linked to html
+let generateBtn = document.querySelector("#generate");
+let charset = {
+  lowercase: "abcdefghijklmnopqrstuvwxyz",
+  uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  numbers: "0123456789",
+  characters: "!@#$%^&*()_+~`|}{[]\:;?><,./-="
+};
 
-// Write password to the #password input
-function writePassword() {
-  console.log();
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = "password";
-}
+let newPassword = "";
+let passwordOptions = "";
+let passLength= document.getElementById("answer");;
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-//---------------------------------------------------------------------------
-
 // function for generating the password
 function generatePassword() {
-  var criteria = userCriteria(length, character);
-  var newPassword = criteriaToPassword(criteria);
-  return newPassword;
+  useLower();
+  useUpper();
+  useNumbers() ;
+  useCharacters();
+  for (let i = 0, n = passwordOptions.length; i < passLength.value; i++) {
+    newPassword += passwordOptions.charAt(Math.floor(Math.random() * n));
+  }
+  return password = newPassword;
 }
 
-// function for setting original user criteria
-function userCriteria() {
-  var criteriaObject = {
-    lengthOriginal: 0,
-    character: {
-      lowercase: false,
-      uppercase: false,
-      numeric: false,
-      special: false
-    }
+// Write password to the #password input
+function writePassword() {
+  passwordOptions = "";
+  newPassword = "";
+  let password = generatePassword();
+  let passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+}
+
+//---------------------------------------------------------------------------Characters
+
+let isLowerRadio = document.getElementById("lowerRadio");
+let isUpperRadio = document.getElementById("upperRadio");
+let isNumericRadio = document.getElementById("numericRadio");
+let isSpecialRadio = document.getElementById("specialRadio");
+
+function useLower() {
+  if (isLowerRadio.checked) {
+    passwordOptions = passwordOptions + charset.lowercase;
+  }
+}
+function useUpper() {
+  if (isUpperRadio.checked) {
+    passwordOptions = passwordOptions + charset.uppercase;
+  }
+}
+function useNumbers() {
+  if (isNumericRadio.checked) {
+    passwordOptions = passwordOptions + charset.numbers;
+  }
+}
+function useCharacters() {
+  if (isSpecialRadio.checked) {
+    passwordOptions = passwordOptions + charset.characters;
   }
 }
 
-//Prompt to get length answer from html
-function lengthPrompt() {
-  var lengthAnswer = prompt("Please enter a number that is between 8 and 128");
-  if (lengthAnswer != null) {
-    document.getElementById("danswer").innerHTML =
-      " Length is " + lengthAnswer;
-  } 
-  console.log(lengthAnswer)
-}
-
-function lengthCriteria() {
-  var length() {
-    if ()
-  } 
-}
-
-//Prompt to get characters
-function characterPrompt() {
-  var isLowerRadio = document.getElementById("lowerRadio");
-  var isUpperRadio = document.getElementById("upperRadio");
-  var isNumericRadio = document.getElementById("numericRadio");
-  var isSpecialRadio = document.getElementById("specialRadio");
-}
-
-function criteriaToPassword(criteria) {
 
 
-}
+
+
+  
+
+
